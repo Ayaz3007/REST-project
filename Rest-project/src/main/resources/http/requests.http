@@ -1,0 +1,47 @@
+GET http://localhost/users?page=0
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXhAbWFpbC5ydSIsInJvbGUiOiJVU0VSIiwiaXNzIjoiL2F1dGgvdG9rZW4iLCJleHAiOjE2Nzk1MDg5ODJ9.lzCKF5bPLcS0v57fyzzCyTi8uzqJi9YXCV6dReF1-90
+
+###
+
+POST http://localhost/users
+Content-Type: application/json
+
+{
+  "firstName": "Кирилл",
+  "lastName": "Случаев",
+  "email": "kirill@mail.ru",
+  "hashPassword": "123456sD+"
+}
+
+###
+
+GET http://localhost/users/1
+
+###
+
+DELETE http://localhost/users/8
+
+###
+
+PUT http://localhost/users/7/confirm
+
+###
+
+PUT http://localhost/users/7
+Content-Type: application/json
+
+{
+  "firstName": "Максим",
+  "lastName": "Случаев",
+  "email": "maxim@mail.ru"
+}
+
+###
+POST http://localhost/auth/token
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJraXJpbGxAbWFpbC5ydSIsInJvbGUiOiJBRE1JTiIsImlzcyI6Ii9hdXRoL3Rva2VuIiwiZXhwIjoxNjc5ODIzMDQ2fQ.Ys7XToh_FtMu-NzbE-ZB6bBWKwm1AscXuAviwY7xkZM
+
+###
+POST http://localhost/auth/token
+Content-Type: application/x-www-form-urlencoded
+
+email=kirill@mail.ru&password=123456sD+

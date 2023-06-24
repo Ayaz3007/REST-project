@@ -1,0 +1,34 @@
+GET http://localhost/ads?page=0
+
+###
+
+POST http://localhost/ads
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJraXJpbGxAbWFpbC5ydSIsInJvbGUiOiJBRE1JTiIsImlzcyI6Ii9hdXRoL3Rva2VuIiwiZXhwIjoxNjc5ODIzMzY5fQ.0OsSx0xAurA3yN8W2KNSVNp4R2OYlSxyEYKhUVDIIs0
+
+{
+  "userId": 8,
+  "header": "some work",
+  "description": "do some work, please"
+}
+
+###
+
+GET http://localhost/ads/69
+
+###
+
+PUT http://localhost/ads/1
+Content-Type: application/json
+
+{
+  "price": 500
+}
+
+###
+
+PUT http://localhost/ads/80/publish
+
+###
+
+DELETE http://localhost/ads/77

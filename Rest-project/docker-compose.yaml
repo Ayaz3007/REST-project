@@ -1,0 +1,46 @@
+version: '3.3'
+
+services:
+  postgres:
+    image:
+      postgres
+    container_name: postgres_help4
+    ports:
+      - 5431:5432
+    environment:
+      - POSTGRES_USER=developer
+      - POSTGRES_PASSWORD=developer
+      - POSTGRES_DB=help4_app_db
+    volumes:
+      - postgres_help4_volume:/var/lib/postgresql/data
+
+  redis:
+    image:
+      redis
+    container_name: redis_help4
+    ports:
+      - 6379:6379
+    volumes:
+      - redis_help4_volume:/data
+
+  application:
+    build: .
+    container_name: application_1
+    ports:
+      - 80:80
+    depends_on:
+      - postgres
+      - redis
+    environment:
+      - "SPRING_DATASOURCE_USERNAME=developer"
+      - "SPRING_DATASOURCE_PASSWORD=developer"
+      - "SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/help4_app_db"
+      - "REDIS_HOST=redis"
+      - "REDIS_PORT=6379"
+
+volumes:
+  postgres_help4_volume:
+    external: true
+  redis_help4_volume:
+    external: true
+
